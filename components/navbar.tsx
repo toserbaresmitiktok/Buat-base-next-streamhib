@@ -6,9 +6,11 @@ import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { Menu, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations('navbar');
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -29,16 +31,16 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
-              Fitur
+              {t('features')}
             </a>
             <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Harga
+              {t('pricing')}
             </a>
             <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
-              Testimoni
+              {t('testimonials')}
             </a>
             <a href="#faq" className="text-sm font-medium hover:text-primary transition-colors">
-              FAQ
+              {t('faq')}
             </a>
           </div>
 
@@ -47,12 +49,13 @@ export function Navbar() {
             <LanguageSwitcher />
             <ThemeToggle />
             <Button size="sm" className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 font-semibold">
-              🚀 Mulai Sekarang
+              {t('startNow')}
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
+            <LanguageSwitcher />
             <ThemeToggle />
             <Button
               variant="ghost"
@@ -69,23 +72,20 @@ export function Navbar() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
               <a href="#features" className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors">
-                Fitur
+                {t('features')}
               </a>
               <a href="#pricing" className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors">
-                Harga
+                {t('pricing')}
               </a>
               <a href="#testimonials" className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors">
-                Testimoni
+                {t('testimonials')}
               </a>
               <a href="#faq" className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors">
-                FAQ
+                {t('faq')}
               </a>
-              <div className="flex items-center space-x-2 px-3 py-2">
-                <LanguageSwitcher />
-              </div>
               <div className="px-3 py-2">
                 <Button size="sm" className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold">
-                  🚀 Mulai Sekarang
+                  {t('startNow')}
                 </Button>
               </div>
             </div>

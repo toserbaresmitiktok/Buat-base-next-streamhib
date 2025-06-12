@@ -1,14 +1,19 @@
 "use client";
 
-import { useState } from 'react';
+import { useLocale } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 
 export function LanguageSwitcher() {
-  const [language, setLanguage] = useState<'id' | 'en'>('id');
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'id' ? 'en' : 'id');
+    const newLocale = locale === 'id' ? 'en' : 'id';
+    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
+    router.push(newPath);
   };
 
   return (
@@ -19,7 +24,7 @@ export function LanguageSwitcher() {
       className="flex items-center gap-2"
     >
       <Globe className="h-4 w-4" />
-      <span className="font-medium">{language === 'id' ? 'ID' : 'EN'}</span>
+      <span className="font-medium">{locale === 'id' ? 'ID' : 'EN'}</span>
     </Button>
   );
 }

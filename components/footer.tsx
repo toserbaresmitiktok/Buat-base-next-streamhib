@@ -3,8 +3,11 @@
 import Image from 'next/image';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { useTranslations } from 'next-intl';
 
 export function Footer() {
+  const t = useTranslations('footer');
+
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -19,8 +22,7 @@ export function Footer() {
               className="h-8 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-gray-300 mb-4 leading-relaxed">
-              StreamHib adalah solusi live streaming 24/7 yang berjalan otomatis dari server. 
-              Tanpa install, tanpa ribet, tanpa khawatir mati sendiri.
+              {t('description')}
             </p>
             <div className="flex items-center space-x-4">
               <LanguageSwitcher />
@@ -30,35 +32,35 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-white mb-4">{t('quickLinks')}</h3>
             <ul className="space-y-2">
-              <li><a href="#features" className="text-gray-300 hover:text-white transition-colors">Fitur</a></li>
-              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Harga</a></li>
-              <li><a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimoni</a></li>
-              <li><a href="#faq" className="text-gray-300 hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="#features" className="text-gray-300 hover:text-white transition-colors">{t('links.features')}</a></li>
+              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">{t('links.pricing')}</a></li>
+              <li><a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">{t('links.testimonials')}</a></li>
+              <li><a href="#faq" className="text-gray-300 hover:text-white transition-colors">{t('links.faq')}</a></li>
             </ul>
           </div>
 
           {/* Support */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Support</h3>
+            <h3 className="font-semibold text-white mb-4">{t('support')}</h3>
             <ul className="space-y-2">
-              <li><a href="mailto:support@streamhib.com" className="text-gray-300 hover:text-white transition-colors">Email Support</a></li>
-              <li><a href="https://wa.me/6281234567890" className="text-gray-300 hover:text-white transition-colors">WhatsApp</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Knowledge Base</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Status Page</a></li>
+              <li><a href="mailto:support@streamhib.com" className="text-gray-300 hover:text-white transition-colors">{t('links.emailSupport')}</a></li>
+              <li><a href="https://wa.me/6281234567890" className="text-gray-300 hover:text-white transition-colors">{t('links.whatsapp')}</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{t('links.knowledgeBase')}</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{t('links.statusPage')}</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 StreamHib. All rights reserved.
+            {t('copyright')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">{t('legal.privacy')}</a>
+            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">{t('legal.terms')}</a>
+            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">{t('legal.cookies')}</a>
           </div>
         </div>
       </div>
